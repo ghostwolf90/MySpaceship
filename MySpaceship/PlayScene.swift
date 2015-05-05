@@ -31,7 +31,6 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         //self.addChild(self.playButton)
         
         self.backgroundColor = UIColor.blackColor()
-        runAction(SKAction.playSoundFileNamed("Explosion.wav", waitForCompletion: false))
         
         // Create the hero sprite and place it in the middle of the screen
         heroSprite.xScale = 0.15
@@ -141,6 +140,10 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         var emitterNode = SKEmitterNode(fileNamed: "ExplosionParticle.sks")
         emitterNode.particlePosition = pos
         self.addChild(emitterNode)
+        
+        //毀滅音效
+        runAction(SKAction.playSoundFileNamed("Explosion.wav", waitForCompletion: false))
+        
         // Don’t forget to remove the emitter node after the explosion
         self.runAction(SKAction.waitForDuration(2), completion: { emitterNode.removeFromParent() })
     }
@@ -175,12 +178,12 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
             // restore lifes in HUD
             self.remainingLifes=3
             for(var i = 0; i<3; i++) {
-                self.lifeNodes[i].alpha=1.0
+                self.lifeNodes[i].alpha = 1.0
             }
             // reset score
-            self.score=0
+            self.score          = 0
             self.scoreNode.text = String(0)
-            self.gamePaused = false
+            self.gamePaused     = false
             })
         // show alert
         self.view?.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)

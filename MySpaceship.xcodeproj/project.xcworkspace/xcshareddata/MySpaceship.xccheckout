@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A0786C63-AE0C-446A-8787-C80B1F3A7670</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MySpaceship</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>14EB6AAA96FF49B62799DB2DB7270EAC047ADA1D</key>
+		<string>https://github.com/ghostwolf90/MySpaceship.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MySpaceship.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>14EB6AAA96FF49B62799DB2DB7270EAC047ADA1D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ghostwolf90/MySpaceship.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>14EB6AAA96FF49B62799DB2DB7270EAC047ADA1D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>14EB6AAA96FF49B62799DB2DB7270EAC047ADA1D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MySpaceship</string>
+		</dict>
+	</array>
+</dict>
+</plist>

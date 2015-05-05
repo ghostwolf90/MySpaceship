@@ -9,9 +9,6 @@
 import SpriteKit
 import GameKit
 
-//let collisionBulletCategory: UInt32  = 0x1 << 0
-//let collisionHeroCategory: UInt32    = 0x1 << 1
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let playButton = SKSpriteNode(imageNamed:"play")
@@ -23,7 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Setup your Label here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.text = "Run, Spaceship!";
-        myLabel.fontSize = 130;
+        myLabel.fontSize = 90;
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame),
                                    y:CGRectGetMidY(self.frame) + (self.playButton.size.height * 2));
 
@@ -31,7 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let LaiBit = SKLabelNode(fontNamed: "Chalkduster")
         LaiBit.text = "作者:LaiBit"
-        LaiBit.fontSize = 50;
+        LaiBit.fontSize = 30;
         LaiBit.position = CGPoint(x:CGRectGetMidX(self.frame),
             y:CGRectGetMidY(self.frame) - (self.playButton.size.height * 2));
         self.addChild(LaiBit)
