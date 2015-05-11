@@ -15,6 +15,7 @@ http://developerplayground.net/?p=16
 ![screenshot](https://raw.githubusercontent.com/ghostwolf90/MySpaceship/master/image/index.png)
 
 2.遊戲畫面
+
 ![screenshot](https://raw.githubusercontent.com/ghostwolf90/MySpaceship/master/image/GameView.png)
 
 --------------------------
