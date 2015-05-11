@@ -8,10 +8,12 @@ Xcode version 6.3
 http://developerplayground.net/?p=16
 
 > 想了解製作遊戲的過程可以跟著Blog一起實作喔！
+
+
 1.開始畫面
-https://github.com/ghostwolf90/MySpaceship/blob/master/image/index.png
+![screenshot]https://github.com/ghostwolf90/MySpaceship/blob/master/image/index.png
 
 2.遊戲畫面
-https://github.com/ghostwolf90/MySpaceship/blob/master/image/GameView.png
+![screenshot]https://github.com/ghostwolf90/MySpaceship/blob/master/image/GameView.png
 
 --------------------------
