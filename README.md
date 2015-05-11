@@ -11,9 +11,9 @@ http://developerplayground.net/?p=16
 
 
 1.開始畫面
-![screenshot]https://github.com/ghostwolf90/MySpaceship/blob/master/image/index.png
+![screenshot]https://raw.githubusercontent.com/ghostwolf90/MySpaceship/master/image/index.png
 
 2.遊戲畫面
-![screenshot]https://github.com/ghostwolf90/MySpaceship/blob/master/image/GameView.png
+![screenshot]https://raw.githubusercontent.com/ghostwolf90/MySpaceship/master/image/GameView.png
 
 --------------------------
