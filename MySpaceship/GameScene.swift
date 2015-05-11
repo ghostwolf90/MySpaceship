@@ -17,7 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.playButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         self.addChild(self.playButton)
         
-        /* Setup your Label here */
+        /* Setup your Label here! */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.text = "Run, Spaceship!";
         myLabel.fontSize = 90;

@@ -79,13 +79,11 @@
 				5FCBEA2F1B009CBB004E0BD0 /* index.png */,
 			);
 			name = image;
-			path = MySpaceship;
 			sourceTree = "<group>";
 		};
 		5FD807B11AF352FD0064A43A = {
 			isa = PBXGroup;
 			children = (
-				5FCBEA291B009AA8004E0BD0 /* image */,
 				5FD807BC1AF352FD0064A43A /* MySpaceship */,
 				5FD807D61AF352FD0064A43A /* MySpaceshipTests */,
 				5FD807BB1AF352FD0064A43A /* Products */,
@@ -104,6 +102,7 @@
 		5FD807BC1AF352FD0064A43A /* MySpaceship */ = {
 			isa = PBXGroup;
 			children = (
+				5FCBEA291B009AA8004E0BD0 /* image */,
 				5FD807E51AF36BE80064A43A /* resources */,
 				5FD807BF1AF352FD0064A43A /* AppDelegate.swift */,
 				5FD807C31AF352FD0064A43A /* GameScene.swift */,
