@@ -1,5 +1,5 @@
 # Swift Game - MySpaceship
-銀河戰機L
+Run,Spaceship!
 ====================
 作者: LaiBit
 Xcode version 6.3
