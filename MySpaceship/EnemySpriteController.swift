@@ -72,6 +72,7 @@ class EnemySpriteController {
             
             // Create the action to move the bullet. Don’t forget to remove the bullet!
             let bulletAction = SKAction.sequence([SKAction.repeatAction(SKAction.moveBy(vector, duration: 1), count: 10) ,  SKAction.waitForDuration(30.0/60.0), SKAction.removeFromParent()])
+            
             bullet.runAction(bulletAction)
         }
     }

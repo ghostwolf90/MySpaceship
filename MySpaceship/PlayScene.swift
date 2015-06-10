@@ -21,7 +21,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
     
     /// HUD Global properties
     var lifeNodes : [SKSpriteNode] = []
-    var remainingLifes = 3
+    var remainingLifes = 9
     var scoreNode = SKLabelNode()
     var score = 0
     var gamePaused = false
@@ -55,7 +55,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         heroSprite.constraints = [SKConstraint.orientToNode(invisibleControllerSprite, offset: rangeForOrientation)]
         
         // Add enemy sprites
-        for(var i = 0; i < 3; i++){
+        for(var i = 0; i < 0; i++){
             self.addChild(enemySprites.spawnEnemy(heroSprite))
         }
         createHUD()
@@ -76,8 +76,6 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         emitterNode = starfieldEmitter(SKColor.darkGrayColor(), starSpeedY: 15, starsPerSecond: 4, starScaleFactor: 0.05)
         emitterNode.zPosition = -12
         self.addChild(emitterNode)
-        
-        
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -89,7 +87,6 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
             var node = self.nodeAtPoint(location)
             if (node.name == "PauseButton") || (node.name == "PauseButtonContainer") {
                 showPauseAlert()
-                
             }
             else {
                 var xOffset:CGFloat = 1.0
@@ -154,13 +151,15 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         self.gamePaused = true
         // remove one life from hud
         if self.remainingLifes>0 {
-            self.lifeNodes[remainingLifes-1].alpha=0.0
+            self.lifeNodes[remainingLifes-1].alpha = 0.0
             self.remainingLifes--;
         }
+        
         // check if remaining lifes exists
         if (self.remainingLifes==0) {
             showGameOverAlert()
         }
+        
         // Stop movement, fade out, move to center, fade in
         heroSprite.removeAllActions()
         self.heroSprite.runAction(SKAction.fadeOutWithDuration(1) , completion: {
@@ -176,8 +175,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         var alert = UIAlertController(title: "Game Over", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default)  { _ in
             // restore lifes in HUD
-            self.remainingLifes=3
-            for(var i = 0; i<3; i++) {
+            for(var i = 0; i<self.remainingLifes; i++) {
                 self.lifeNodes[i].alpha = 1.0
             }
             // reset score
@@ -227,6 +225,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         pauseContainer.size = CGSizeMake(hud.size.height*3, hud.size.height*2)
         pauseContainer.name = "PauseButtonContainer"
         hud.addChild(pauseContainer)
+        
         var pauseButton = SKLabelNode()
         pauseButton.position = CGPointMake(hud.size.width/1.5, 1)
         pauseButton.text="I I"
@@ -249,7 +248,6 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    
     var _dLastShootTime: CFTimeInterval = 1
     override func update(currentTime: CFTimeInterval) {
         if !self.gamePaused {
@@ -257,7 +255,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
             /* Called before each frame is rendered */
             if currentTime - _dLastShootTime >= 1 {
                 enemySprites.shoot(heroSprite)
-                _dLastShootTime=currentTime
+                _dLastShootTime = currentTime
                 
                 // Increase score
                 self.score++
