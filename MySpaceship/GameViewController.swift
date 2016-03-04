@@ -25,9 +25,9 @@ class GameViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         // Detect the screensize
-        var sizeRect = UIScreen.mainScreen().applicationFrame
-        var width = sizeRect.size.width * UIScreen.mainScreen().scale
-        var height = sizeRect.size.height * UIScreen.mainScreen().scale
+        let sizeRect = UIScreen.mainScreen().applicationFrame
+        let width = sizeRect.size.width * UIScreen.mainScreen().scale
+        let height = sizeRect.size.height * UIScreen.mainScreen().scale
         
         // Create a fullscreen Scene object
         ascene = PlayScene(size: CGSizeMake(width, height))
@@ -47,8 +47,8 @@ class GameViewController: UIViewController {
         skView.presentScene(scene)
     }
 
-     override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.LandscapeLeft.rawValue)
+     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.LandscapeLeft
     }
 
     func gameCenterStateChanged() {
@@ -64,7 +64,7 @@ class GameViewController: UIViewController {
             GKLocalPlayer.localPlayer().authenticateHandler = {(viewController, error) -> Void in
                 if viewController != nil {
                     self.ascene!.gamePaused = true
-                    self.presentViewController(viewController, animated: true, completion: nil)
+                    self.presentViewController(viewController!, animated: true, completion: nil)
                     // Add an observer which calls ‘gameCenterStateChanged’ to handle a changed game center state
                     let notificationCenter = NSNotificationCenter.defaultCenter()
                     notificationCenter.addObserver(self, selector:"gameCenterStateChanged", name: "GKPlayerAuthenticationDidChangeNotificationName", object: nil)

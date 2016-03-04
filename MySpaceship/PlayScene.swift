@@ -39,7 +39,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         
         // Add physics body for collision detection
         heroSprite.physicsBody?.dynamic = true
-        heroSprite.physicsBody = SKPhysicsBody(texture: heroSprite.texture, size: heroSprite.size)
+        heroSprite.physicsBody = SKPhysicsBody(texture: heroSprite.texture!, size: heroSprite.size)
         heroSprite.physicsBody?.affectedByGravity = false
         heroSprite.physicsBody?.categoryBitMask = collisionHeroCategory
         heroSprite.physicsBody?.contactTestBitMask = collisionBulletCategory
@@ -55,7 +55,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         heroSprite.constraints = [SKConstraint.orientToNode(invisibleControllerSprite, offset: rangeForOrientation)]
         
         // Add enemy sprites
-        for(var i = 0; i < 0; i++){
+        for(var i = 0; i < 3; i++){
             self.addChild(enemySprites.spawnEnemy(heroSprite))
         }
         createHUD()
@@ -78,20 +78,20 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(emitterNode)
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         /* Called when a touch begins */
         for touch: AnyObject in touches {
             
-            var location = touch.locationInNode(self)
-            var node = self.nodeAtPoint(location)
+            let location = touch.locationInNode(self)
+            let node = self.nodeAtPoint(location)
             if (node.name == "PauseButton") || (node.name == "PauseButtonContainer") {
                 showPauseAlert()
             }
             else {
                 var xOffset:CGFloat = 1.0
                 var yOffset:CGFloat = 1.0
-                var location = touch.locationInNode(self)
+                let location = touch.locationInNode(self)
                 if location.x>heroSprite.position.x {
                     xOffset = -1.0
                 }
@@ -135,14 +135,14 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
     
     func explosion(pos: CGPoint) {
         var emitterNode = SKEmitterNode(fileNamed: "ExplosionParticle.sks")
-        emitterNode.particlePosition = pos
-        self.addChild(emitterNode)
+        emitterNode!.particlePosition = pos
+        self.addChild(emitterNode!)
         
         //毀滅音效
         runAction(SKAction.playSoundFileNamed("Explosion.wav", waitForCompletion: false))
         
         // Don’t forget to remove the emitter node after the explosion
-        self.runAction(SKAction.waitForDuration(2), completion: { emitterNode.removeFromParent() })
+        self.runAction(SKAction.waitForDuration(2), completion: { emitterNode!.removeFromParent() })
     }
     
     func lifeLost() {
@@ -172,7 +172,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
     
     func showGameOverAlert() {
         self.gamePaused = true
-        var alert = UIAlertController(title: "Game Over", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Game Over", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default)  { _ in
             // restore lifes in HUD
             for(var i = 0; i<self.remainingLifes; i++) {
@@ -191,7 +191,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
     // Show Pause Alert
     func showPauseAlert() {
         self.gamePaused = true
-        var alert = UIAlertController(title: "Pause", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Pause", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default)  { _ in
             self.gamePaused = false
             })
@@ -202,7 +202,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
     func createHUD() {
         // Create a root node with black background to position and group the HUD elemets
         // HUD size is relative to the screen resolution to handle iPad and iPhone screens
-        var hud = SKSpriteNode(color: UIColor.blackColor(), size: CGSizeMake(self.size.width, self.size.height*0.05))
+        let hud = SKSpriteNode(color: UIColor.blackColor(), size: CGSizeMake(self.size.width, self.size.height*0.05))
         hud.anchorPoint=CGPointMake(0, 0)
         hud.position = CGPointMake(0, self.size.height-hud.size.height)
         self.addChild(hud)
@@ -211,7 +211,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         // Reuse the Spaceship image: Scale and position releative to the HUD size
         let lifeSize = CGSizeMake(hud.size.height-10, hud.size.height-10)
         for(var i = 0; i<self.remainingLifes; i++) {
-            var tmpNode = SKSpriteNode(imageNamed: "Spaceship")
+            let tmpNode = SKSpriteNode(imageNamed: "Spaceship")
             lifeNodes.append(tmpNode)
             tmpNode.size = lifeSize
             tmpNode.position=CGPointMake(tmpNode.size.width * 1.3 * (1.0 + CGFloat(i)), (hud.size.height-5)/2)
@@ -220,13 +220,13 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         // Pause button container and label
         // Needed to increase the touchable area
         // Names will be used to identify these elements in the touch handler
-        var pauseContainer = SKSpriteNode()
+        let pauseContainer = SKSpriteNode()
         pauseContainer.position = CGPointMake(hud.size.width/1.5, 1)
         pauseContainer.size = CGSizeMake(hud.size.height*3, hud.size.height*2)
         pauseContainer.name = "PauseButtonContainer"
         hud.addChild(pauseContainer)
         
-        var pauseButton = SKLabelNode()
+        let pauseButton = SKLabelNode()
         pauseButton.position = CGPointMake(hud.size.width/1.5, 1)
         pauseButton.text="I I"
         pauseButton.fontSize=hud.size.height

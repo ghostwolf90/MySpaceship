@@ -37,12 +37,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //self.backgroundColor = UIColor(hex: 0x80D9FF)
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         for touch: AnyObject in touches{
             let location = touch.locationInNode(self)
             if self.nodeAtPoint(location) == self.playButton{
-                var scene = PlayScene(size: self.size)
+                let scene = PlayScene(size: self.size)
                 let skView = self.view
                 skView!.ignoresSiblingOrder = true
                 scene.scaleMode = .ResizeFill

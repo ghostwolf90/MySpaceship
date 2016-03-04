@@ -182,6 +182,8 @@
 		5FD807B21AF352FD0064A43A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Laibit;
 				TargetAttributes = {
